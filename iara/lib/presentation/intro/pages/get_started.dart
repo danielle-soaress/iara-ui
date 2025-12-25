@@ -4,6 +4,7 @@ import 'package:iara/core/configs/assets/app_images.dart';
 import 'package:iara/core/configs/assets/app_vectors.dart';
 import 'package:iara/core/configs/theme/app_colors.dart';
 import 'package:iara/core/configs/theme/app_theme.dart';
+import 'package:iara/presentation/home/pages/home.dart';
 import 'package:iara/common/widgets/gradient_button.dart';
 import 'package:mesh_gradient/mesh_gradient.dart';
 
@@ -95,7 +96,15 @@ class GetStartedPage extends StatelessWidget {
                   ],
                 ),
 
-                GradientButton(text: "Vamos!", onPressed: () => {}),
+                GradientButton(
+                  text: "Vamos!",
+                  onPressed: () => {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const HomePage()),
+                    ),
+                  },
+                ),
               ],
             ),
           ),
