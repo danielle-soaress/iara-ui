@@ -7,6 +7,8 @@ import 'package:iara/core/configs/theme/app_theme.dart';
 import 'package:iara/presentation/home/pages/home.dart';
 import 'package:iara/common/widgets/gradient_button.dart';
 import 'package:mesh_gradient/mesh_gradient.dart';
+import 'package:animate_do/animate_do.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class GetStartedPage extends StatelessWidget {
   final String username;
@@ -27,7 +29,7 @@ class GetStartedPage extends StatelessWidget {
                 Color(AppColors.gradientPurple),
                 Color(AppColors.white),
               ],
-              options: AnimatedMeshGradientOptions(speed: 4, grain: 0.1),
+              options: AnimatedMeshGradientOptions(speed: 6, grain: 0.1),
             ),
           ),
 
@@ -49,39 +51,64 @@ class GetStartedPage extends StatelessWidget {
                 Image.asset(AppImages.happyAILA, width: 300),
 
                 Column(
+                  spacing: 20,
                   children: [
-                    Row(
-                      children: [
-                        Text("Olá, ", style: context.text.headlineLarge),
-                        Text(
-                          username,
-                          style: context.text.headlineLarge?.copyWith(
-                            color: Color(AppColors.secondaryPurple),
+                    SizedBox(
+                      width: double.infinity,
+                      child: AnimatedTextKit(
+                        animatedTexts: [
+                          BounceAnimatedText(
+                            'Olá!',
+                            textStyle: context.text.headlineLarge,
+                            textAlign: TextAlign.start,
                           ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 10),
-                    Text.rich(
-                      TextSpan(
-                        children: [
-                          TextSpan(
-                            text: "Eu sou a ",
-                            style: context.text.bodyLarge,
+                          BounceAnimatedText(
+                            'Hello!',
+                            textStyle: context.text.headlineLarge,
+                            textAlign: TextAlign.start,
                           ),
-                          TextSpan(
-                            text: "AILA",
-                            style: context.text.bodyLarge?.copyWith(
-                              fontWeight: FontWeight.w900,
-                              color: Color(AppColors.secondaryPurple),
-                            ),
+                          BounceAnimatedText(
+                            'Hola!',
+                            textStyle: context.text.headlineLarge,
+                            textAlign: TextAlign.start,
                           ),
-                          TextSpan(
-                            text:
-                                ", sua Inteligência Artificial para aprendizado de idiomas.",
-                            style: context.text.bodyLarge,
+                          BounceAnimatedText(
+                            'Bonjour!',
+                            textStyle: context.text.headlineLarge,
+                            textAlign: TextAlign.start,
+                          ),
+                          BounceAnimatedText(
+                            'Ciao!',
+                            textStyle: context.text.headlineLarge,
+                            textAlign: TextAlign.start,
                           ),
                         ],
+                      ),
+                    ),
+                    FadeIn(
+                      duration: Duration(milliseconds: 500),
+                      delay: Duration(milliseconds: 1500),
+                      child: Text.rich(
+                        TextSpan(
+                          children: [
+                            TextSpan(
+                              text: "Eu sou a ",
+                              style: context.text.bodyLarge,
+                            ),
+                            TextSpan(
+                              text: "AILA",
+                              style: context.text.bodyLarge?.copyWith(
+                                fontWeight: FontWeight.w900,
+                                color: Color(AppColors.secondaryPurple),
+                              ),
+                            ),
+                            TextSpan(
+                              text:
+                                  ", sua Inteligência Artificial para aprendizado de idiomas.",
+                              style: context.text.bodyLarge,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
@@ -90,20 +117,68 @@ class GetStartedPage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    SvgPicture.asset(AppVectors.world),
-                    SvgPicture.asset(AppVectors.conversation),
-                    SvgPicture.asset(AppVectors.academic),
+                    FadeIn(
+                      duration: Duration(milliseconds: 500),
+                      delay: Duration(milliseconds: 1800),
+                      child: SvgPicture.asset(AppVectors.world),
+                    ),
+                    FadeIn(
+                      duration: Duration(milliseconds: 500),
+                      delay: Duration(milliseconds: 2100),
+                      child: SvgPicture.asset(AppVectors.conversation),
+                    ),
+                    FadeIn(
+                      duration: Duration(milliseconds: 500),
+                      delay: Duration(milliseconds: 2500),
+                      child: SvgPicture.asset(AppVectors.academic),
+                    ),
                   ],
                 ),
 
-                GradientButton(
-                  text: "Vamos!",
-                  onPressed: () => {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const HomePage()),
-                    ),
-                  },
+                Container(
+                  child: Column(
+                    children: [
+                      FadeIn(
+                        duration: Duration(milliseconds: 500),
+                        delay: Duration(milliseconds: 2800),
+                        child: Text(
+                          "Estou pronta para te ajudar.",
+                          style: context.text.bodyLarge?.copyWith(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                      FadeIn(
+                        duration: Duration(milliseconds: 500),
+                        delay: Duration(milliseconds: 3100),
+                        child: Text(
+                          "Vamos lá?",
+                          style: context.text.bodyLarge?.copyWith(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 20),
+
+                      FadeIn(
+                        duration: Duration(milliseconds: 500),
+                        delay: Duration(milliseconds: 3600),
+                        child: GradientButton(
+                          text: "Vamos!",
+                          onPressed: () => {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const HomePage(),
+                              ),
+                            ),
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
