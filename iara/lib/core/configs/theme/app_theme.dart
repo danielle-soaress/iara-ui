@@ -58,6 +58,12 @@ class AppTheme {
       fontWeight: FontWeight.normal,
       color: Color(AppColors.white),
     ),
+
+    bodySmall: TextStyle(
+      fontSize: 14,
+      fontWeight: FontWeight.normal,
+      color: Color(AppColors.white),
+    ),
   );
 
   static final lightTextTheme = TextTheme(
@@ -74,7 +80,12 @@ class AppTheme {
     ),
 
     bodyMedium: TextStyle(
-      fontSize: 16,
+      fontSize: 14,
+      fontWeight: FontWeight.normal,
+      color: Color(AppColors.black),
+    ),
+    bodySmall: TextStyle(
+      fontSize: 12,
       fontWeight: FontWeight.normal,
       color: Color(AppColors.black),
     ),
