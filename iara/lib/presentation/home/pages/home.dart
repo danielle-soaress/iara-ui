@@ -31,9 +31,10 @@ final List<Map<String, dynamic>> gridItems = [
 ];
 
 final Map<String, dynamic> bottomItem = {
-  "icon": Icons.school_rounded,
-  "theme": "Acadêmico",
-  "desc": "Vocabulário para estudos e faculdade.",
+  "icon": Icons.flag_rounded,
+  "theme": "Desafio do Dia",
+  "desc":
+      "Um tema mistério único a cada 24h para testar seus limites e garantir recompensas exclusivas.",
 };
 
 class HomePage extends StatelessWidget {
@@ -98,12 +99,12 @@ class HomePage extends StatelessWidget {
                       icon: gridItems[index]['icon'] is IconData
                           ? Icon(
                               gridItems[index]['icon'],
-                              size: 32,
+                              size: 25,
                               color: Color(AppColors.black),
                             )
                           : FaIcon(
                               gridItems[index]['icon'],
-                              size: 32,
+                              size: 25,
                               color: Color(AppColors.black),
                             ),
                       theme: "${gridItems[index]['theme']}",
@@ -130,13 +131,12 @@ class HomePage extends StatelessWidget {
                       ),
                     },
                     icon: Icon(
-                      Icons.school,
+                      bottomItem["icon"],
                       color: Color(AppColors.black),
-                      size: 32,
+                      size: 25,
                     ),
-                    theme: "Desafio do Dia",
-                    description:
-                        "Um tema mistério único a cada 24h para testar seus limites e garantir recompensas exclusivas.",
+                    theme: bottomItem["theme"],
+                    description: bottomItem["desc"],
                     stroke: true,
                     widget: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -152,21 +152,24 @@ class HomePage extends StatelessWidget {
                                 "0",
                                 style: TextStyle(
                                   fontWeight: FontWeight.w900,
-                                  fontSize: 20,
+                                  fontSize: 18,
                                 ),
                               ),
                             ),
                             GradientMask(
                               child: FaIcon(
                                 FontAwesomeIcons.fire,
-                                size: 20,
+                                size: 18,
                                 color: Color(AppColors.black),
                               ),
                             ),
                           ],
                         ),
 
-                        Text("day streak", style: context.text.bodySmall),
+                        Text(
+                          "day streak",
+                          style: context.text.bodySmall?.copyWith(fontSize: 10),
+                        ),
                       ],
                     ),
                   ),
