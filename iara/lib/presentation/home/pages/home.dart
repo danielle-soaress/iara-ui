@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iara/common/widgets/input_bar.dart';
 import 'package:iara/core/configs/assets/app_images.dart';
 import 'package:iara/core/configs/theme/app_colors.dart';
 import 'package:iara/common/widgets/app_bar.dart';
@@ -39,6 +40,10 @@ final Map<String, dynamic> bottomItem = {
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
+
+  void onSend(String text) {
+    print(text);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -118,17 +123,17 @@ class HomePage extends StatelessWidget {
                   width: double.infinity,
                   child: ThemeCard(
                     action: () => {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            print(
-                              "block function aqui, mas vou ajeitar depois",
-                            );
-                            return const HomePage();
-                          },
-                        ),
-                      ),
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) {
+                      //       print(
+                      //         "block function aqui, mas vou ajeitar depois",
+                      //       );
+                      //       return const HomePage();
+                      //     },
+                      //   ),
+                      // ),
                     },
                     icon: Icon(
                       bottomItem["icon"],
@@ -176,6 +181,8 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
+
+            InputBar(hintText: "Inicie uma conversa livre", onSend: onSend),
           ],
         ),
       ),
